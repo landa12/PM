@@ -1,0 +1,163 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="PM.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+
+    <title>人事管理系统</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="site1.scss" />
+    <style type="text/css">
+        .container{
+            width:100%;
+            height:110px;
+            margin:0;
+            padding:0;
+        }
+        #image{
+            width:300px;
+            height:100px;
+            position:absolute;
+            top:15px;
+            left:300px;
+        }
+        .arrow_bottom{
+			content:"";
+            position: absolute;
+            top:18px;
+            left:355px;           
+            border-right: 1px solid #757575;
+            border-bottom: 1px solid #757575;
+            width: 6px;
+            height: 5px;
+            transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);  /* 旋转border */
+		}
+         
+    /* 定位菜单位置 */
+    .nav_position{
+        position:absolute;
+        left:50%;
+        top:50px;
+    }
+    /* 菜单样式 */
+	.nav {         
+        overflow: hidden; 
+        display:inline-block;
+    }
+    
+    /* 去掉a标签的下划线 */
+    .nav a {
+        text-decoration: none;
+    }
+    
+    /* 设置ul和li的样式 */
+    .nav ul , .nav li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        float: left;
+    } 
+    
+    /* 设置二级菜单绝对定位，并隐藏 */
+    .nav > ul > li > ul {
+        position: absolute;
+        display: none;
+    }
+
+    /* 设置二级菜单的li的样式 */
+    .nav > ul > li > ul > li {
+        float: none;
+    }
+	/* 鼠标放在一级菜单上 */
+	.nav > ul > li a:hover{	
+		color:#5cb9ee;
+	}
+    /* 鼠标放在一级菜单上，显示二级菜单 */
+    .nav > ul > li:hover ul{		
+        display: block;
+    }
+
+    /* 一级菜单 */
+    .nav > ul > li > a {
+        width: 85px;
+        line-height: 40px;
+        color:#42537b;
+        text-align: center;
+        display: block;
+		font-family:'Microsoft YaHei';
+        font-weight:600;
+        font-size:medium;
+        margin-right:30px;
+    }
+	/* (首页)一级菜单 */
+	.hover1 a{
+		width:60px;
+		margin-right:20px;
+	}
+	/* (人力资源管理)一级菜单 */
+	#hover2 a{
+		width:110px;
+        margin-right:50px;
+	}
+    .hover4 a{
+        width:60px;
+		margin-left:10px;
+    }
+	/* 二级菜单 */
+	.nav > ul > li > ul > li > a {
+		width: 120px;
+		line-height: 36px;
+		color:#42537b;
+		text-align:center;
+		display: block;
+        font-family:'Microsoft YaHei';
+        font-weight:600;
+        font-size:medium;
+        background:white;
+	}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container">
+          <div>
+               <img alt="柯叁人事管理系统" id="image" src="images/logo1.png" />
+          </div>
+        <div class="nav_position">
+       <div class="nav">
+            <ul>
+                <li class="hover1">
+					<a href="Default.aspx">首 页</a>
+					<div style="position:absolute;top:10px;left:90px;width: 1.5px;height:20px; background: darkgray;"></div> 
+				</li>
+                <li id="hover2">
+					<a href="Login.aspx">人力资源管理</a>
+                    <div style="position:absolute;top:10px;left:250px;width: 1.5px;height:20px; background: darkgray;"></div> 
+				</li>
+                <li>
+					<a href="#">关于我们<i class="arrow_bottom"></i></a>
+                    <div style="position:absolute;top:10px;left:390px;width: 1.5px;height:20px; background: darkgray;"></div> 
+                    <ul>
+                        <li class="hover3_1"><a href="About.aspx">系统介绍</a></li>
+                        <li class="hover3_1"><a href="#">团队风采</a></li>
+                    </ul>
+                </li>
+                <li class="hover4">
+                    <a href="#">帮 助</a>
+                </li>
+            </ul>
+        </div>
+       </div>
+       </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+         
+    </form>
+</body>
+</html>
